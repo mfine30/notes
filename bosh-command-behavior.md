@@ -115,3 +115,45 @@ Entity | Deployment Change | Current Instance State | User Action | Which Manife
 `instance_group` | Update link provider | Updated, Failed, Not Updated | stop hard | n/a | delete VMs
 `instance_group` | Trusted Certs | Updated, Failed, Not Updated | stop hard | n/a | delete VMs
 `instance_group` | Unmanaged Disks | Updated, Failed, Not Updated | stop hard | n/a | delete VMs; keep disks associated with instances
+
+
+#### Start Behavior
+
+Entity | Deployment Change | Current Instance State | User Action | Which Manifest To Use? | Expected Behavior
+-------|---------------|-------|-------------|--------------------|-------------------
+`instance_group` | Update release | Updated | start | new manifest | keep new manifest release on VMs
+`instance_group` | Disk scale | Updated | start | new manifest | keep new manifest disks attached
+`instance_group` | Property change | Updated | start | new manifest | keep new manifest properties on VMs
+`instance_group` | Update link provider | Updated | start | new manifest | provide new manifest links
+`instance_group` | Trusted Certs | Updated | start | new manifest | keep new trusted certs on VM
+`instance_group` | Unmanaged Disks | Updated | start | new manifest | keep new manifest disks attached
+`instance_group` | Update release | Failed | start | new manifest | keep new manifest release on all VMs
+`instance_group` | Disk scale | Failed | start | new manifest | keep new manifest disk attached on all VMs
+`instance_group` | Property change | Failed | start | new manifest | keep new manifest properties on all VMs
+`instance_group` | Update link provider | Failed | start | new manifest | provide new manifest links
+`instance_group` | Trusted Certs | Failed | start | new manifest | keep new trusted certs on all VMs
+`instance_group` | Unmanaged Disks | Failed | start | new manifest | keep new manifest disks attached on all VMs
+`instance_group` | Update release | Not Updated | start | new manifest | error; require deploy to update 
+`instance_group` | Disk scale | Not Updated | start | new manifest | error; require deploy to update 
+`instance_group` | Property change | Not Updated | start | new manifest | error; require deploy to update 
+`instance_group` | Update link provider | Not Updated | start | new manifest | error; require deploy to update
+`instance_group` | Trusted Certs | Not Updated | start | new manifest | error; require deploy to update
+`instance_group` | Unmanaged Disks | Not Updated | start | new manifest | error; require deploy to update
+`instance_group` | Update release | Updated | start | last successful | last successful manifest release on VMs
+`instance_group` | Disk scale | Updated | start | last successful | migrate disk contents to last successful manifest disk state
+`instance_group` | Property change | Updated | start | last successful | last successful manifest properties on VMs
+`instance_group` | Update link provider | Updated | start | last successful | provide last successful manifest links
+`instance_group` | Trusted Certs | Updated | start | last successful | **keep new trusted certs on VM**
+`instance_group` | Unmanaged Disks | Updated | start | last successful | make last successful manifest disk types available
+`instance_group` | Update release | Failed | start | last successful | last successful manifest release on VMs
+`instance_group` | Disk scale | Failed | start | last successful | migrate disk contents to last successful manifest disk state
+`instance_group` | Property change | Failed | start | last successful | last successful manifest properties on VMs
+`instance_group` | Update link provider | Failed | start | last successful | provide last successful manifest link
+`instance_group` | Trusted Certs | Failed | start | last successful | **keep new trusted certs on VM**
+`instance_group` | Unmanaged Disks | Failed | start | last successful | make last successful manifest disk types available
+`instance_group` | Update release | Not Updated | start | last successful | already in correct state; just start
+`instance_group` | Disk scale | Not Updated | start | last successful | already in correct state; just start
+`instance_group` | Property change | Not Updated | start | last successful | already in correct state; just start
+`instance_group` | Update link provider | Not Updated | start | last successful | already in correct state; just start
+`instance_group` | Trusted Certs | Not Updated | start | last successful | already in correct state; just start
+`instance_group` | Unmanaged Disks | Not Updated | start | n/a | already in correct state; just start
