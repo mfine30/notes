@@ -5,7 +5,7 @@ Each row below describes a `Deployment Change` that was applied to an existing d
 
 #### Stop Behavior: 
 
-Entity | Deployment Change | Current State | User Action | State to Update to? | Expected Behavior
+Entity | Deployment Change | Current Instance State | User Action | State to Update to? | Expected Behavior
 -------|---------------|-------|-------------|--------------------|-------------------
 `instance/INDEX` | Update release | Updated | stop | n/a | keep desired release on VM
 `instance/INDEX` | Disk scale | Updated | stop | n/a | keep new disk attached
@@ -26,7 +26,7 @@ Entity | Deployment Change | Current State | User Action | State to Update to? |
 
 #### Start Behavior: 
 
-Entity | Deployment Change | Current State | User Action | State to Update to? | Expected Behavior
+Entity | Deployment Change | Current Instance State | User Action | State to Update to? | Expected Behavior
 -------|---------------|-------|-------------|--------------------|-------------------
 `instance/INDEX` | Update release | Updated | start | desired | keep desired release on VM
 `instance/INDEX` | Disk scale | Updated | start | desired | keep new disk attached
