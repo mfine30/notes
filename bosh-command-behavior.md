@@ -1,10 +1,15 @@
-## Table of Contents 
+## Table of Contents
+- [Intro](#intro)
 - [Commands on a Specific Instance](#commands-on-a-specific-instance)
   * [Stop Behavior](#stop-behavior)
   * [Start Behavior](#start-behavior)
 - [Commands on Instance Group](#commands-on-an-instance-group)
+  * [Stop Behavior](#stop-behavior-1)
+  * [Start Behavior](#start-behavior-1)
 
-Assume updating an instance group called mysql with 3 instances.
+### Intro
+
+This document describes the intended behavior of BOSH when an operator runs a command against an instance, instance group, or deployment and that "entity" is in a given state.
 
 Each row below describes a `Deployment Change` that was applied to an existing deployment. That change left the `Entity` in the `Current State`. The `User Action` is the type of command the user runs on the `Entity`, and the `State to Update to?` is if the user specifies "last successful manifest" or "desired manifest" when that `User Action` is run.
 
