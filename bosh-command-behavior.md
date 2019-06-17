@@ -7,20 +7,20 @@ Each row below describes a `Deployment Change` that was applied to an existing d
 
 Entity | Deployment Change | Current Instance State | User Action | State to Update to? | Expected Behavior
 -------|---------------|-------|-------------|--------------------|-------------------
-`instance/INDEX` | Update release | Updated | stop | n/a | keep desired release on VM
-`instance/INDEX` | Disk scale | Updated | stop | n/a | keep new disk attached
-`instance/INDEX` | Property change | Updated | stop | n/a | updated properties stay on VM
-`instance/INDEX` | Update link provider | Updated | stop | n/a | link provider provides new link
-`instance/INDEX` | Update release | Failed | stop | n/a | keep desired release on VM
-`instance/INDEX` | Disk scale | Failed | stop | n/a | keep new disk attached
-`instance/INDEX` | Property change | Failed | stop | n/a | updated properties stay on VM
-`instance/INDEX` | Update link provider | Failed | stop | n/a | link provider provides new link
-`instance/INDEX` | Update release | Not Updated | stop | n/a | keep old release on VM
-`instance/INDEX` | Disk scale | Not Updated | stop | n/a | keep old disk attached
-`instance/INDEX` | Property change | Not Updated | stop | n/a | old properties stay on VM
-`instance/INDEX` | Update link provider | Not Updated | stop | n/a | link provider provides old link
+`instance/INDEX` | Update release | Updated | stop | n/a | keep new manifest release on VM
+`instance/INDEX` | Disk scale | Updated | stop | n/a | keep new manifest disk attached
+`instance/INDEX` | Property change | Updated | stop | n/a | keep new manifest properties on VM
+`instance/INDEX` | Update link provider | Updated | stop | n/a | provide new manifest link
+`instance/INDEX` | Update release | Failed | stop | n/a | keep new manifest release on VM
+`instance/INDEX` | Disk scale | Failed | stop | n/a | keep new manifest disk attached
+`instance/INDEX` | Property change | Failed | stop | n/a | keep new manifest properties on VM
+`instance/INDEX` | Update link provider | Failed | stop | n/a | provide new manifest link
+`instance/INDEX` | Update release | Not Updated | stop | n/a | keep last successful manifest release on VM
+`instance/INDEX` | Disk scale | Not Updated | stop | n/a | keep last successful manifest disk attached
+`instance/INDEX` | Property change | Not Updated | stop | n/a | keep last successful manifest properties on VM
+`instance/INDEX` | Update link provider | Not Updated | stop | n/a | provides last successful manifest link
 `instance/INDEX` | Update release | Updated, Failed, Not Updated | stop hard | n/a | delete VM
-`instance/INDEX` | Disk scale | Updated, Failed, Not Updated | stop hard | n/a | delete VM
+`instance/INDEX` | Disk scale | Updated, Failed, Not Updated | stop hard | n/a | delete VM; keep disk associated with instance
 `instance/INDEX` | Property change | Updated, Failed, Not Updated | stop hard | n/a | delete VM
 `instance/INDEX` | Update link provider | Updated, Failed, Not Updated | stop hard | n/a | delete VM
 
