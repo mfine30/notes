@@ -2,6 +2,7 @@ Assume updating an instance group called mysql with 3 instances.
 
 Each row below describes a `Deployment Change` that was applied to an existing deployment. That change left the `Entity` in the `Current State`. The `User Action` is the type of command the user runs on the `Entity`, and the `State to Update to?` is if the user specifies "last successful manifest" or "desired manifest" when that `User Action` is run.
 
+### Commands on Specific Instance
 
 #### Stop Behavior: 
 
@@ -72,3 +73,34 @@ Entity | Deployment Change | Current Instance State | User Action | Which Manife
 `instance/INDEX` | Update link provider | Not Updated | start | last successful | already in correct state; just start
 `instance/INDEX` | Trusted Certs | Not Updated | start | last successful | already in correct state; just start
 `instance/INDEX` | Unmanaged Disks | Not Updated | start | n/a | already in correct state; just start
+
+### Commands on Instance Group
+
+#### Stop Behavior: 
+
+Entity | Deployment Change | Current Instance State | User Action | Which Manifest To Use? | Expected Behavior
+-------|---------------|-------|-------------|--------------------|-------------------
+`instance_group` | Update release | Updated | stop | n/a | keep new manifest release on VMs
+`instance_group` | Disk scale | Updated | stop | n/a | keep new manifest disks attached
+`instance_group` | Property change | Updated | stop | n/a | keep new manifest properties on VMs
+`instance_group` | Update link provider | Updated | stop | n/a | provide new manifest links
+`instance_group` | Trusted Certs | Updated | stop | n/a | include new trusted certs
+`instance_group` | Unmanaged Disks | Updated | stop | n/a | keep new manifest disks available
+`instance_group` | Update release | Failed | stop | n/a | keep all VMs in current
+`instance_group` | Disk scale | Failed | stop | n/a | keep all disks in current attachment
+`instance_group` | Property change | Failed | stop | n/a | keep all VMs in current state
+`instance_group` | Update link provider | Failed | stop | n/a | each instance provides current link
+`instance_group` | Trusted Certs | Failed | stop | n/a | each instance includes current certs
+`instance_group` | Unmanaged Disks | Failed | stop | n/a | keep currently attached disks
+`instance_group` | Update release | Not Updated | stop | n/a | keep last successful manifest release on VMs
+`instance_group` | Disk scale | Not Updated | stop | n/a | keep last successful manifest disks attached
+`instance_group` | Property change | Not Updated | stop | n/a | keep last successful manifest properties on VMs
+`instance_group` | Update link provider | Not Updated | stop | n/a | provides last successful manifest links
+`instance_group` | Trusted Certs | Not Updated | stop | n/a | include last successful trusted certs
+`instance_group` | Unmanaged Disks | Not Updated | stop | n/a | keep last successful disks available
+`instance_group` | Update release | Updated, Failed, Not Updated | stop hard | n/a | delete VMs
+`instance_group` | Disk scale | Updated, Failed, Not Updated | stop hard | n/a | delete VMs; keep disks associated with instances
+`instance_group` | Property change | Updated, Failed, Not Updated | stop hard | n/a | delete VMs
+`instance_group` | Update link provider | Updated, Failed, Not Updated | stop hard | n/a | delete VMs
+`instance_group` | Trusted Certs | Updated, Failed, Not Updated | stop hard | n/a | delete VMs
+`instance_group` | Unmanaged Disks | Updated, Failed, Not Updated | stop hard | n/a | delete VMs; keep disks associated with instances
