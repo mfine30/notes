@@ -1,8 +1,8 @@
 ## Table of Contents 
-- [Commands on a Specific Instance](###Commands%20on%20a%20Specific%20Instance)
-  * [Stop Behavior](####Stop%20Behavior)
-  * [Start Behavior](####Start%20Behavior)
-- [Commands on Instance Group](###Commands%20on%20Instance%20Group)
+- [Commands on a Specific Instance](#commands-on-a-specific-instance)
+  * [Stop Behavior](#stop-behavior)
+  * [Start Behavior](#start-behavior)
+- [Commands on Instance Group](#commands-on-an-instance-group)
 
 Assume updating an instance group called mysql with 3 instances.
 
@@ -80,7 +80,7 @@ Entity | Deployment Change | Current Instance State | User Action | Which Manife
 `instance/INDEX` | Trusted Certs | Not Updated | start | last successful | already in correct state; just start
 `instance/INDEX` | Unmanaged Disks | Not Updated | start | n/a | already in correct state; just start
 
-### Commands on Instance Group
+### Commands on an Instance Group
 
 #### Stop Behavior
 
