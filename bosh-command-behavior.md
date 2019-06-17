@@ -11,18 +11,26 @@ Entity | Deployment Change | Current Instance State | User Action | Which Manife
 `instance/INDEX` | Disk scale | Updated | stop | n/a | keep new manifest disk attached
 `instance/INDEX` | Property change | Updated | stop | n/a | keep new manifest properties on VM
 `instance/INDEX` | Update link provider | Updated | stop | n/a | provide new manifest link
+`instance/INDEX` | Trusted Certs | Updated | stop | n/a | include new trusted certs
+`instance/INDEX` | Unmanaged Disks | Updated | stop | n/a | keep new manifest disks available
 `instance/INDEX` | Update release | Failed | stop | n/a | keep new manifest release on VM
 `instance/INDEX` | Disk scale | Failed | stop | n/a | keep new manifest disk attached
 `instance/INDEX` | Property change | Failed | stop | n/a | keep new manifest properties on VM
 `instance/INDEX` | Update link provider | Failed | stop | n/a | provide new manifest link
+`instance/INDEX` | Trusted Certs | Failed | stop | n/a | include new trusted certs
+`instance/INDEX` | Unmanaged Disks | Failed | stop | n/a | keep new manifest disks available
 `instance/INDEX` | Update release | Not Updated | stop | n/a | keep last successful manifest release on VM
 `instance/INDEX` | Disk scale | Not Updated | stop | n/a | keep last successful manifest disk attached
 `instance/INDEX` | Property change | Not Updated | stop | n/a | keep last successful manifest properties on VM
 `instance/INDEX` | Update link provider | Not Updated | stop | n/a | provides last successful manifest link
+`instance/INDEX` | Trusted Certs | Not Updated | stop | n/a | include last successful trusted certs
+`instance/INDEX` | Unmanaged Disks | Not Updated | stop | n/a | keep last successful disks available
 `instance/INDEX` | Update release | Updated, Failed, Not Updated | stop hard | n/a | delete VM
 `instance/INDEX` | Disk scale | Updated, Failed, Not Updated | stop hard | n/a | delete VM; keep disk associated with instance
 `instance/INDEX` | Property change | Updated, Failed, Not Updated | stop hard | n/a | delete VM
 `instance/INDEX` | Update link provider | Updated, Failed, Not Updated | stop hard | n/a | delete VM
+`instance/INDEX` | Trusted Certs | Updated, Failed, Not Updated | stop hard | n/a | delete VM
+`instance/INDEX` | Unmanaged Disks | Updated, Failed, Not Updated | stop hard | n/a | delete VM; keep disks associated with instance
 
 #### Start Behavior: 
 
