@@ -40,23 +40,35 @@ Entity | Deployment Change | Current Instance State | User Action | Which Manife
 `instance/INDEX` | Disk scale | Updated | start | new manifest | keep new manifest disk attached
 `instance/INDEX` | Property change | Updated | start | new manifest | keep new manifest properties on VM
 `instance/INDEX` | Update link provider | Updated | start | new manifest | provide new manifest link
+`instance/INDEX` | Trusted Certs | Updated | start | new manifest | keep new trusted certs on VM
+`instance/INDEX` | Unmanaged Disks | Updated | start | new manifest | keep new manifest disks attached
 `instance/INDEX` | Update release | Failed | start | new manifest | keep new manifest release on VM
 `instance/INDEX` | Disk scale | Failed | start | new manifest | keep new manifest disk attached
 `instance/INDEX` | Property change | Failed | start | new manifest | keep new manifest properties on VM
 `instance/INDEX` | Update link provider | Failed | start | new manifest | provide new manifest link
+`instance/INDEX` | Trusted Certs | Failed | start | new manifest | keep new trusted certs on VM
+`instance/INDEX` | Unmanaged Disks | Failed | start | new manifest | keep new manifest disks attached
 `instance/INDEX` | Update release | Not Updated | start | new manifest | error; require deploy to update 
 `instance/INDEX` | Disk scale | Not Updated | start | new manifest | error; require deploy to update 
 `instance/INDEX` | Property change | Not Updated | start | new manifest | error; require deploy to update 
 `instance/INDEX` | Update link provider | Not Updated | start | new manifest | error; require deploy to update
+`instance/INDEX` | Trusted Certs | Not Updated | start | new manifest | error; require deploy to update
+`instance/INDEX` | Unmanaged Disks | Not Updated | start | new manifest | error; require deploy to update
 `instance/INDEX` | Update release | Updated | start | last successful | last successful manifest release on VM
 `instance/INDEX` | Disk scale | Updated | start | last successful | migrate disk contents to last successful manifest disk state
 `instance/INDEX` | Property change | Updated | start | last successful | last successful manifest properties on VM
 `instance/INDEX` | Update link provider | Updated | start | last successful | provide last successful manifest link
+`instance/INDEX` | Trusted Certs | Updated | start | last successful | **keep new trusted certs on VM**
+`instance/INDEX` | Unmanaged Disks | Updated | start | last successful | make last successful manifest disk types available
 `instance/INDEX` | Update release | Failed | start | last successful | last successful manifest release on VM
 `instance/INDEX` | Disk scale | Failed | start | last successful | migrate disk contents to last successful manifest disk state
 `instance/INDEX` | Property change | Failed | start | last successful | last successful manifest properties on VM
 `instance/INDEX` | Update link provider | Failed | start | last successful | provide last successful manifest link
+`instance/INDEX` | Trusted Certs | Failed | start | last successful | **keep new trusted certs on VM**
+`instance/INDEX` | Unmanaged Disks | Failed | start | last successful | make last successful manifest disk types available
 `instance/INDEX` | Update release | Not Updated | start | last successful | already in correct state; just start
 `instance/INDEX` | Disk scale | Not Updated | start | last successful | already in correct state; just start
 `instance/INDEX` | Property change | Not Updated | start | last successful | already in correct state; just start
 `instance/INDEX` | Update link provider | Not Updated | start | last successful | already in correct state; just start
+`instance/INDEX` | Trusted Certs | Not Updated | start | last successful | already in correct state; just start
+`instance/INDEX` | Unmanaged Disks | Not Updated | start | n/a | already in correct state; just start
