@@ -5,7 +5,7 @@ Each row below describes a `Deployment Change` that was applied to an existing d
 
 #### Stop Behavior: 
 
-Entity | Deployment Change | Current Instance State | User Action | State to Update to? | Expected Behavior
+Entity | Deployment Change | Current Instance State | User Action | Which Manifest To Use? | Expected Behavior
 -------|---------------|-------|-------------|--------------------|-------------------
 `instance/INDEX` | Update release | Updated | stop | n/a | keep new manifest release on VM
 `instance/INDEX` | Disk scale | Updated | stop | n/a | keep new manifest disk attached
@@ -26,29 +26,29 @@ Entity | Deployment Change | Current Instance State | User Action | State to Upd
 
 #### Start Behavior: 
 
-Entity | Deployment Change | Current Instance State | User Action | State to Update to? | Expected Behavior
+Entity | Deployment Change | Current Instance State | User Action | Which Manifest To Use? | Expected Behavior
 -------|---------------|-------|-------------|--------------------|-------------------
-`instance/INDEX` | Update release | Updated | start | desired | keep desired release on VM
-`instance/INDEX` | Disk scale | Updated | start | desired | keep new disk attached
-`instance/INDEX` | Property change | Updated | start | desired | updated properties stay on VM
-`instance/INDEX` | Update link provider | Updated | start | desired | link provider provides new link
-`instance/INDEX` | Update release | Failed | start | desired | keep desired release on VM
-`instance/INDEX` | Disk scale | Failed | start | desired | keep new disk attached
-`instance/INDEX` | Property change | Failed | start | desired | updated properties stay on VM
-`instance/INDEX` | Update link provider | Failed | start | desired | link provider provides new link
-`instance/INDEX` | Update release | Not Updated | start | desired | error; require deploy to update 
-`instance/INDEX` | Disk scale | Not Updated | start | desired | error; require deploy to update 
-`instance/INDEX` | Property change | Not Updated | start | desired | error; require deploy to update 
-`instance/INDEX` | Update link provider | Not Updated | start | desired | error; require deploy to update
-`instance/INDEX` | Update release | Updated | start | last successful | start with previous release
-`instance/INDEX` | Disk scale | Updated | start | last successful | migrate to new disk in old config
-`instance/INDEX` | Property change | Updated | start | last successful | revert to old properties on VM
-`instance/INDEX` | Update link provider | Updated | start | last successful | link provider provides old link
-`instance/INDEX` | Update release | Failed | start | last successful | start with previous release
-`instance/INDEX` | Disk scale | Failed | start | last successful | migrate to new disk in old config
-`instance/INDEX` | Property change | Failed | start | last successful | revert to old properties on VM
-`instance/INDEX` | Update link provider | Failed | start | last successful | link provider provides old link
-`instance/INDEX` | Update release | Not Updated | start | last successful | old release is still on VM
-`instance/INDEX` | Disk scale | Not Updated | start | last successful | old disk is still attached 
-`instance/INDEX` | Property change | Not Updated | start | last successful | old properties still on VM 
-`instance/INDEX` | Update link provider | Not Updated | start | last successful | link provider still providing old link
+`instance/INDEX` | Update release | Updated | start | new manifest | keep new manifest release on VM
+`instance/INDEX` | Disk scale | Updated | start | new manifest | keep new manifest disk attached
+`instance/INDEX` | Property change | Updated | start | new manifest | keep new manifest properties on VM
+`instance/INDEX` | Update link provider | Updated | start | new manifest | provide new manifest link
+`instance/INDEX` | Update release | Failed | start | new manifest | keep new manifest release on VM
+`instance/INDEX` | Disk scale | Failed | start | new manifest | keep new manifest disk attached
+`instance/INDEX` | Property change | Failed | start | new manifest | keep new manifest properties on VM
+`instance/INDEX` | Update link provider | Failed | start | new manifest | provide new manifest link
+`instance/INDEX` | Update release | Not Updated | start | new manifest | error; require deploy to update 
+`instance/INDEX` | Disk scale | Not Updated | start | new manifest | error; require deploy to update 
+`instance/INDEX` | Property change | Not Updated | start | new manifest | error; require deploy to update 
+`instance/INDEX` | Update link provider | Not Updated | start | new manifest | error; require deploy to update
+`instance/INDEX` | Update release | Updated | start | last successful | last successful manifest release on VM
+`instance/INDEX` | Disk scale | Updated | start | last successful | migrate disk contents to last successful manifest disk state
+`instance/INDEX` | Property change | Updated | start | last successful | last successful manifest properties on VM
+`instance/INDEX` | Update link provider | Updated | start | last successful | provide last successful manifest link
+`instance/INDEX` | Update release | Failed | start | last successful | last successful manifest release on VM
+`instance/INDEX` | Disk scale | Failed | start | last successful | migrate disk contents to last successful manifest disk state
+`instance/INDEX` | Property change | Failed | start | last successful | last successful manifest properties on VM
+`instance/INDEX` | Update link provider | Failed | start | last successful | provide last successful manifest link
+`instance/INDEX` | Update release | Not Updated | start | last successful | already in correct state; just start
+`instance/INDEX` | Disk scale | Not Updated | start | last successful | already in correct state; just start
+`instance/INDEX` | Property change | Not Updated | start | last successful | already in correct state; just start
+`instance/INDEX` | Update link provider | Not Updated | start | last successful | already in correct state; just start
