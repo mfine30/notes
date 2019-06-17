@@ -20,7 +20,7 @@ Entity | Deployment Change | Current Instance State | User Action | State to Upd
 `instance/INDEX` | Property change | Not Updated | stop | n/a | old properties stay on VM
 `instance/INDEX` | Update link provider | Not Updated | stop | n/a | link provider provides old link
 `instance/INDEX` | Update release | Updated, Failed, Not Updated | stop hard | n/a | delete VM
-`instance/INDEX` | Disk scale | Updated, Failed, Not Updated | stop hard | n/a | delete VM; orphan disk
+`instance/INDEX` | Disk scale | Updated, Failed, Not Updated | stop hard | n/a | delete VM
 `instance/INDEX` | Property change | Updated, Failed, Not Updated | stop hard | n/a | delete VM
 `instance/INDEX` | Update link provider | Updated, Failed, Not Updated | stop hard | n/a | delete VM
 
