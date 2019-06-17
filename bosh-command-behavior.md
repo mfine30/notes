@@ -1,5 +1,8 @@
 ## Table of Contents 
 - [Commands on a Specific Instance](###Commands%20on%20a%20Specific%20Instance)
+  * [Stop Behavior](####Stop%20Behavior)
+  * [Start Behavior](####Start%20Behavior)
+- [Commands on Instance Group](###Commands%20on%20Instance%20Group)
 
 Assume updating an instance group called mysql with 3 instances.
 
@@ -7,7 +10,7 @@ Each row below describes a `Deployment Change` that was applied to an existing d
 
 ### Commands on a Specific Instance
 
-#### Stop Behavior: 
+#### Stop Behavior
 
 Entity | Deployment Change | Current Instance State | User Action | Which Manifest To Use? | Expected Behavior
 -------|---------------|-------|-------------|--------------------|-------------------
@@ -36,7 +39,7 @@ Entity | Deployment Change | Current Instance State | User Action | Which Manife
 `instance/INDEX` | Trusted Certs | Updated, Failed, Not Updated | stop hard | n/a | delete VM
 `instance/INDEX` | Unmanaged Disks | Updated, Failed, Not Updated | stop hard | n/a | delete VM; keep disks associated with instance
 
-#### Start Behavior: 
+#### Start Behavior
 
 Entity | Deployment Change | Current Instance State | User Action | Which Manifest To Use? | Expected Behavior
 -------|---------------|-------|-------------|--------------------|-------------------
@@ -79,7 +82,7 @@ Entity | Deployment Change | Current Instance State | User Action | Which Manife
 
 ### Commands on Instance Group
 
-#### Stop Behavior: 
+#### Stop Behavior
 
 Entity | Deployment Change | Current Instance State | User Action | Which Manifest To Use? | Expected Behavior
 -------|---------------|-------|-------------|--------------------|-------------------
