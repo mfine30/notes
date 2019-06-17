@@ -1,8 +1,11 @@
+## Table of Contents 
+- [Commands on a Specific Instance](###Commands%20on%20a%20Specific%20Instance)
+
 Assume updating an instance group called mysql with 3 instances.
 
 Each row below describes a `Deployment Change` that was applied to an existing deployment. That change left the `Entity` in the `Current State`. The `User Action` is the type of command the user runs on the `Entity`, and the `State to Update to?` is if the user specifies "last successful manifest" or "desired manifest" when that `User Action` is run.
 
-### Commands on Specific Instance
+### Commands on a Specific Instance
 
 #### Stop Behavior: 
 
