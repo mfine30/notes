@@ -13,13 +13,18 @@ At a high level, the new endpoints follow the structure
 
 Command behavior should follow information defined [in this document](https://github.com/mfine30/notes/blob/master/bosh-command-behavior.md)
 
+Using New Endpoints/Commands
+* [Stop](#stop)
+* [Start](#start)
+* [View Task Output](#view-task-output)
+
 ## Stop
 
 ### Stop
 
 To stop a specific instance
 ```
-$ bosh curl /deployment/dep1/instance_group/ig1/4/actions/stop
+$ bosh curl -X POST /deployment/dep1/instance_group/ig1/4/actions/stop
 
 {"id":4790,"state":"processing","description":"stop instance","timestamp":1560897492,"started_at":null,"result":null,"user":"admin","deployment":"lifecycle","context_id":""}
 ```
@@ -29,8 +34,17 @@ $ bosh curl /deployment/dep1/instance_group/ig1/4/actions/stop
 To stop a specific instance and delete its associated VM
 (i.e. `bosh stop --hard`) append `?hard=true` to the end of the endpoint
 ```
-$ bosh curl `/deployment/dep1/instance_group/ig1/4/actions/stop?hard=true`
+$ bosh curl -X POST /deployment/dep1/instance_group/ig1/4/actions/stop?hard=true`
 ```
+
+## Start
+
+```
+$ bosh curl -X POST /deployments/dep2/instance_groups/:instance_group/:index/actions/start
+
+{"id":4790,"state":"processing","description":"stop instance","timestamp":1560897492,"started_at":null,"result":null,"user":"admin","deployment":"lifecycle","context_id":""}
+```
+
 
 ## View Task Output 
 Each of the commands above will trigger an underlying BOSH task. To view the output of that task, follow these instructions.
