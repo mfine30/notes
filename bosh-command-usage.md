@@ -2,7 +2,7 @@
 
 We will eventually create proper CLI commands for these endpoints, 
 either by replacing the existing `bosh start` and `bosh stop` type commands,
-or creating entirely new commands. In the interim, they can be run with new endpoints on a recent enough BOSH Director.
+or creating entirely new commands. In the interim, they can be run with new endpoints on a BOSH Director [v270.3.0 or later](https://github.com/cloudfoundry/bosh/releases/tag/v270.3.0).
 
 At a high level, the new endpoints follow the structure
 `/deployments/:deployment/instance_groups/:instance_group/:id/actions/:action`. 
@@ -13,7 +13,7 @@ At a high level, the new endpoints follow the structure
 
 Command behavior should follow information defined [in this document](https://github.com/mfine30/notes/blob/master/bosh-command-behavior.md)
 
-Using New Endpoints/Commands
+### Using New Endpoints/Commands
 * [Stop](#stop)
 * [Start](#start)
 * [View Task Output](#view-task-output)
@@ -27,6 +27,14 @@ To stop a specific instance
 $ bosh curl -X POST /deployment/dep1/instance_group/ig1/4/actions/stop
 
 {"id":4790,"state":"processing","description":"stop instance","timestamp":1560897492,"started_at":null,"result":null,"user":"admin","deployment":"lifecycle","context_id":""}
+```
+
+#### Skip Drain
+
+To stop a specific instance and delete its associated VM
+(i.e. `bosh stop --hard`) append `?skip-drain=true` to the end of the endpoint
+```
+$ bosh curl -X POST /deployment/dep1/instance_group/ig1/4/actions/stop?skip-drain=true`
 ```
 
 ### Stop Instance and Delete VM
