@@ -34,7 +34,7 @@ $ bosh curl -X POST /deployment/dep1/instance_group/ig1/4/actions/stop
 To stop a specific instance and delete its associated VM
 (i.e. `bosh stop --hard`) append `?skip-drain=true` to the end of the endpoint
 ```
-$ bosh curl -X POST /deployment/dep1/instance_group/ig1/4/actions/stop?skip-drain=true`
+$ bosh curl -X POST /deployment/dep1/instance_group/ig1/4/actions/stop?skip_drain=true`
 ```
 
 ### Stop Instance and Delete VM
