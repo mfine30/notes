@@ -16,6 +16,8 @@ Command behavior should follow information defined [in this document](https://gi
 ### Using New Endpoints/Commands
 * [Stop](#stop)
 * [Start](#start)
+* [Recreate](#recreate)
+* [Restart](#restart)
 * [View Task Output](#view-task-output)
 
 ## Stop
@@ -46,6 +48,7 @@ $ bosh curl -X POST /deployment/dep1/instance_group/ig1/4/actions/stop?hard=true
 ```
 
 ## Start
+To start a specific instance
 
 ```
 $ bosh curl -X POST /deployments/dep2/instance_groups/:instance_group/:index/actions/start
@@ -53,6 +56,23 @@ $ bosh curl -X POST /deployments/dep2/instance_groups/:instance_group/:index/act
 {"id":4790,"state":"processing","description":"stop instance","timestamp":1560897492,"started_at":null,"result":null,"user":"admin","deployment":"lifecycle","context_id":""}
 ```
 
+## Recreate
+To recreate a specific instance (as of BOSH v270.4.0)
+
+```
+$ bosh curl -X POST /deployments/dep2/instance_groups/:instance_group/:index/actions/recreate
+
+{"id":4790,"state":"processing","description":"recreate instance","timestamp":1560897492,"started_at":null,"result":null,"user":"admin","deployment":"lifecycle","context_id":""}
+```
+
+## Restart
+To restart a specific instance (as of BOSH v270.4.0)
+
+```
+$ bosh curl -X POST /deployments/dep2/instance_groups/:instance_group/:index/actions/restart
+
+{"id":4790,"state":"processing","description":"restart instance","timestamp":1560897492,"started_at":null,"result":null,"user":"admin","deployment":"lifecycle","context_id":""}
+```
 
 ## View Task Output 
 Each of the commands above will trigger an underlying BOSH task. To view the output of that task, follow these instructions.
