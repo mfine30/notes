@@ -1,3 +1,5 @@
+### Warning: As of BOSH v270.4.0 we took the position of keeping each instance in the state it is in when the command is run rather than updating it to the previous or next manifest, meaning this document's described behaviors are not accurate to how BOSH actually behaves.
+
 ## Table of Contents
 - [Intro](#intro)
 - [Commands on a Specific Instance](#commands-on-a-specific-instance)
